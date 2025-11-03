@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Furniture Price Predictor</title>
+    <style>
+      body { font-family: Arial, sans-serif; max-width:700px; margin:40px auto; }
+      label { display:block; margin-top:12px }
+      input, select { width:100%; padding:8px; margin-top:6px }
+      button { margin-top:16px; padding:10px 16px }
+    </style>
+  </head>
+  <body>
+    <h1>Furniture Price Predictor</h1>
+    <form method="post" action="/predict">
+      <label>Category
+        <select name="category" required>
+          {% if choices.category %}
+            {% for opt in choices.category %}
+              <option value="{{ opt }}">{{ opt }}</option>
+            {% endfor %}
+          {% else %}
+            <option value="0">0</option>
+          {% endif %}
+        </select>
+      </label>
+
+      <label>Sellable Online
+        <select name="sellable_online" required>
+          {% if choices.sellable_online %}
+            {% for opt in choices.sellable_online %}
+              <option value="{{ opt }}">{{ opt }}</option>
+            {% endfor %}
+          {% else %}
+            <option value="0">0</option>
+          {% endif %}
+        </select>
+      </label>
+
+      <label>Other Colors
+        <select name="other_colors" required>
+          {% if choices.other_colors %}
+            {% for opt in choices.other_colors %}
+              <option value="{{ opt }}">{{ opt }}</option>
+            {% endfor %}
+          {% else %}
+            <option value="0">0</option>
+          {% endif %}
+        </select>
+      </label>
+
+      <label>Depth
+        <input type="number" step="any" name="depth" required />
+      </label>
+
+      <label>Height
+        <input type="number" step="any" name="height" required />
+      </label>
+
+      <label>Width
+        <input type="number" step="any" name="width" required />
+      </label>
+
+      <button type="submit">Predict</button>
+    </form>
+  </body>
+</html>

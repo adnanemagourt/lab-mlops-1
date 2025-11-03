@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Iris Species Prediction</title>
+    <style>
+      body { font-family: Arial, sans-serif; max-width: 650px; margin: 2rem auto; padding: 1rem; }
+      label { display:block; margin-top: 0.8rem; }
+      input { width:100%; padding:0.4rem; }
+      .submit { margin-top: 1rem; padding: 0.6rem 1rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Iris Species Prediction</h1>
+    <p>Enter the four features and click <strong>Predict</strong>.</p>
+
+    <form action="/predict" method="post">
+      {% for key, label in feature_labels %}
+        <label for="{{ key }}">{{ label }}</label>
+        <input type="text" name="{{ key }}" id="{{ key }}" placeholder="{{ label }}">
+      {% endfor %}
+
+      <button type="submit" class="submit">Predict</button>
+    </form>
+  </body>
+</html>

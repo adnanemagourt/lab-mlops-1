@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 650px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .ok {
+            color: darkgreen;
+        }
+
+        .err {
+            color: darkred;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Prediction</h1>
+    {% if error %}
+    <p class="err">Error: {{ error }}</p>
+    <p><a href="/">Back</a></p>
+    {% else %}
+    <p class="ok"><strong>Predicted species:</strong> {{ prediction }}</p>
+    {% if probability is not none %}
+    <p><strong>Confidence:</strong> {{ '%.2f'|format(probability*100) }}%</p>
+    {% endif %}
+    <h3>Input features</h3>
+    <ul>
+        {% for item in feature_labels %}
+        <li>{{ item[1] }}: {{ values[loop.index0] }}</li>
+        {% endfor %}
+
+    </ul>
+    <p><a href="/">Make another prediction</a></p>
+    {% endif %}
+</body>
+
+</html>
