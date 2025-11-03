@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Iris Species Predictor</title>
+    <style>
+      body { font-family: Arial, sans-serif; max-width:700px; margin:40px auto; }
+      label { display:block; margin-top:12px }
+      input { width:100%; padding:8px; margin-top:6px }
+      button { margin-top:16px; padding:10px 16px }
+    </style>
+  </head>
+  <body>
+    <h1>Iris Species Predictor</h1>
+    <form method="post" action="/predict">
+      <label>Sepal length
+        <input type="number" step="any" name="sepal_length" required />
+      </label>
+
+      <label>Sepal width
+        <input type="number" step="any" name="sepal_width" required />
+      </label>
+
+      <label>Petal length
+        <input type="number" step="any" name="petal_length" required />
+      </label>
+
+      <label>Petal width
+        <input type="number" step="any" name="petal_width" required />
+      </label>
+
+      <button type="submit">Predict</button>
+    </form>
+  </body>
+</html>

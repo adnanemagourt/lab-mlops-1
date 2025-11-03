@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Iris Prediction Result</title>
+    <style>
+      body { font-family: Arial, sans-serif; max-width:600px; margin:40px auto }
+      .card { padding:20px; border:1px solid #ddd; border-radius:6px }
+    </style>
+  </head>
+  <body>
+    <h1>Prediction Result</h1>
+    <div class="card">
+      {% if error %}
+        <p style="color:darkred"><strong>Error:</strong> {{ error }}</p>
+      {% else %}
+        <p><strong>Predicted species:</strong> {{ prediction }}</p>
+      {% endif %}
+    </div>
+    <p><a href="/">Back</a></p>
+  </body>
+</html>
